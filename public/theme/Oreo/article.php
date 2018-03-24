@@ -23,7 +23,7 @@
 	<script>hljs.initHighlightingOnLoad();</script>
 	 <?php
         if($data['allow_comment'] == 1){
-            include __THEME__.'comment.php';
+            include __THEME__.'/comment.php';
         }
         ?>
 <?php include __THEME__.'/footer.php'; ?>

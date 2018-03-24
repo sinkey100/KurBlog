@@ -19,7 +19,7 @@
 </div>
 <script src="/static/common/js/highlight.min.js"></script>
 <script >hljs.initHighlightingOnLoad();</script>
-<script type="text/javascript" src="<?=__THEME__?>/js/oreo-main.js?ver=<?php echo time(); ?>"></script>
+<script type="text/javascript" src="<?=__PUBLIC__?>/js/oreo-main.js"></script>
 
 </body>
 </html>

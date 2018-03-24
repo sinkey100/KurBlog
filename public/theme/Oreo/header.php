@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1,minimum-scale=1">
     <meta name="description" content="">
     <meta name="keywords" content="">
-	<link type="image/vnd.microsoft.icon" href="<?=__THEME__?>/images/favicon.png" rel="shortcut icon">
-    <link href="<?=__THEME__?>/css/main.css?ver=2.2" type="text/css" rel="stylesheet"/>
-    <link href="<?=__THEME__?>/css/oreo-style.css" type="text/css" rel="stylesheet"/>
+	<link type="image/vnd.microsoft.icon" href="<?=__PUBLIC__?>/images/favicon.png" rel="shortcut icon">
+    <link href="<?=__PUBLIC__?>/css/main.css?ver=2.2" type="text/css" rel="stylesheet"/>
+    <link href="<?=__PUBLIC__?>/css/oreo-style.css" type="text/css" rel="stylesheet"/>
     <script src="/static/common/js/jquery.min.js"></script>
 </head>
 <body>
 <div class="oreo-wrapper">
     <div class="oreo-header">
         <div id="header">
-            <p class="logo"><a href="/"><img src="<?=__THEME__?>/images/face.jpg" alt=""></a></p>
+            <p class="logo"><a href="/"><img src="<?=__PUBLIC__?>/images/face.jpg" alt=""></a></p>
             <ul>
                 <li><a href="/"><i class="iconfont icon-user"></i> <?php echo $_K['setting']['blog_name'];?></a></li>
                 <li><a href="/single/after95"><i class="iconfont icon-birthdaycake"></i> After 95</a></li>
@@ -37,7 +37,7 @@
             <div id="nav">
                 <ul>
 				<?php foreach($_K['menu'] as $v): ?>
-                            <li><a href="<?=$v['url']?>"><?=$v['title']?></a></li>
+                    <li><a href="<?=$v['url']?>"><?=$v['title']?></a></li>
                 <?php endforeach; ?>
                 </ul>
             </div>

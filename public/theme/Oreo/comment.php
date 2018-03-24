@@ -1,4 +1,4 @@
-<script src="<?=__THEME__?>/js/comment.js"></script>
+<script src="<?=__PUBLIC__?>/js/comment.js"></script>
 <div id="comment">
     <div class="comment-list">
         <?=$comment['html']?>

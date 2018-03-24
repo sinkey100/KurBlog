@@ -8,9 +8,9 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link rel="stylesheet" href="/static/common/css/bootstrap.css">
-    <link rel="stylesheet" href="<?=__THEME__?>/static/style.css">
+    <link rel="stylesheet" href="<?=__PUBLIC__?>/static/style.css">
     <script src="/static/common/js/jquery.min.js"></script>
-    <script src="<?=__THEME__?>/static/script.js"></script>
+    <script src="<?=__PUBLIC__?>/static/script.js"></script>
 </head>
 <body>
 <div id="doc">

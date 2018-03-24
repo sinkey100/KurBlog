@@ -33,7 +33,8 @@ class Base extends Controller
         $this->_K['public']     = '/';
         $this->_K['theme_path'] = './theme/'.$this->_K['setting']['theme'].'/';
         if(!defined('__THEME__')){
-            define('__THEME__','/theme/'.$this->_K['setting']['theme']);
+            define('__THEME__','./theme/'.$this->_K['setting']['theme']);
+            define('__PUBLIC__','/theme/'.$this->_K['setting']['theme']);
         }
         //获取链接
         $link   = LinkModel::order('weight','asc')->select();
