@@ -23,3 +23,5 @@ Route::rule('page/[:param]','index/page/index');
 Route::rule('search/[:param]','index/article/search');
 //评论
 Route::rule('comment/api','index/comment/api');
+//Rss
+Route::rule('rss/[:num]','index/rss/index');

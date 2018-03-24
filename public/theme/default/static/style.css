@@ -1,62 +1,81 @@
 @charset "UTF-8";
-#category .post-excerpt a,#header nav li,#search .post-excerpt a,#tag .post-excerpt a,.post .post-eof {
+#category .post-excerpt a, #header nav li, #search .post-excerpt a, #tag .post-excerpt a, .post .post-eof {
     white-space: nowrap
 }
+
 @font-face {
     font-family: icon;
     src: url(font.woff?) format("woff")
 }
+
 html {
     font-size: 100px
 }
+
 body {
     margin: 0;
-    font-family: "Source Han Sans SC","Noto Sans CJK SC","Source Han Sans CN","Noto Sans SC","Source Han Sans TC","Noto Sans CJK TC",Tahoma,"PingFang SC","Hiragino Sans GB","Neue Haas Grotesk Text Pro","Microsoft YaHei","Microsoft JhengHei",sans-serif;
+    font-family: "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", Tahoma, "PingFang SC", "Hiragino Sans GB", "Neue Haas Grotesk Text Pro", "Microsoft YaHei", "Microsoft JhengHei", sans-serif;
     font-size: .16rem;
     line-height: 1.5;
     background-color: #FFF;
     -webkit-text-size-adjust: 100%
 }
+
 @media only screen and (max-width: 800px) {
     html {
         font-size: 115px
     }
-    .main h2{
-        padding-left:20px;
+
+    .main h2 {
+        padding-left: 20px;
     }
-    #comment{
-        padding:10px 20px!important;
+
+    #comment {
+        padding: 10px 20px !important;
     }
-}@media only screen and (max-width: 410px) {
+}
+
+@media only screen and (max-width: 410px) {
     html {
         font-size: 110px
     }
-}@media only screen and (max-width: 360px) {
+}
+
+@media only screen and (max-width: 360px) {
     html {
         font-size: 100px
     }
-}@media only screen and (max-width: 320px) {
+}
+
+@media only screen and (max-width: 320px) {
     html {
         font-size: 85px
     }
-}h1,h2,h3,h4,h5,h6 {
-     font-family: "Noto Serif","Source Han Sans SC","Noto Sans CJK SC","Source Han Sans CN","Noto Sans SC","Source Han Sans TC","Noto Sans CJK TC",Tahoma,"PingFang SC","Hiragino Sans GB","Neue Haas Grotesk Text Pro","Microsoft YaHei","Microsoft JhengHei",sans-serif
- }
-code,kbd,pre {
-    font-family: CamingoCode,Monaco,Courier,"Source Han Sans SC",monospace
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Noto Serif", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", Tahoma, "PingFang SC", "Hiragino Sans GB", "Neue Haas Grotesk Text Pro", "Microsoft YaHei", "Microsoft JhengHei", sans-serif
+}
+
+code, kbd, pre {
+    font-family: CamingoCode, Monaco, Courier, "Source Han Sans SC", monospace
+}
+
 a {
     color: #4183C4;
     text-decoration: none
 }
+
 a:hover {
     color: #1E70BF;
     text-decoration: underline
 }
+
 .wrapper {
     max-width: 8rem;
     margin: 0 auto
 }
+
 i.icon {
     font-family: icon;
     speak: none;
@@ -68,26 +87,32 @@ i.icon {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
 }
+
 i.icon.search:before {
     content: "\e111"
 }
+
 i.icon.prev:before {
     content: "\e112"
 }
+
 i.icon.next:before {
     content: "\e113"
 }
+
 i.icon.menu:before {
     content: "\e114"
 }
+
 i.icon.github:before {
     content: "\e120"
 }
+
 #header .fixed {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255,255,255,.7);
+    background: rgba(255, 255, 255, .7);
     z-index: 100;
     -webkit-transition: all .3s ease-out;
     transition: all .3s ease-out;
@@ -96,6 +121,7 @@ i.icon.github:before {
     -webkit-transform: translateY(0);
     transform: translateY(0)
 }
+
 #header .fixed:after {
     content: '';
     width: 200%;
@@ -109,10 +135,12 @@ i.icon.github:before {
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0
 }
+
 #header .fixed.hidden {
     -webkit-transform: translateY(-.66rem);
     transform: translateY(-.66rem)
 }
+
 #header .wrapper {
     margin: .1rem auto;
     height: .4rem;
@@ -123,12 +151,14 @@ i.icon.github:before {
     -ms-flex-pack: justify;
     justify-content: space-between
 }
+
 #header .hgroup {
     -webkit-box-flex: 0;
     -ms-flex: none;
     flex: none;
     margin-right: auto
 }
+
 #header .hgroup .logo {
     display: block;
     height: 100%;
@@ -136,10 +166,12 @@ i.icon.github:before {
     -webkit-transition: color .15s linear;
     transition: color .15s linear
 }
+
 #header .hgroup .logo:hover {
     text-decoration: none;
     color: #555
 }
+
 #header .hgroup h1 {
     margin: 0;
     height: .4rem;
@@ -147,6 +179,7 @@ i.icon.github:before {
     font-size: .2rem;
     font-weight: 400
 }
+
 #header nav {
     -webkit-box-flex: 0;
     -ms-flex: none;
@@ -155,9 +188,11 @@ i.icon.github:before {
     display: -ms-flexbox;
     display: flex
 }
+
 #header nav .menu-btn {
     display: none
 }
+
 #header nav ul {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -167,23 +202,28 @@ i.icon.github:before {
     height: .4rem;
     line-height: .4rem
 }
+
 #header nav .home {
     display: none
 }
+
 #header nav li {
     list-style-type: none;
     margin: 0 .2rem
 }
+
 #header nav li a {
     color: #444;
     font-size: .14rem;
     -webkit-transition: color .3s linear;
     transition: color .3s linear
 }
+
 #header nav li a:hover {
     text-decoration: none;
     color: #888
 }
+
 #header form {
     -webkit-box-flex: 0;
     -ms-flex: none;
@@ -196,6 +236,7 @@ i.icon.github:before {
     -ms-flex-line-pack: center;
     align-content: center
 }
+
 #header form .input {
     margin: .05rem 0;
     padding: .02rem 0;
@@ -205,23 +246,27 @@ i.icon.github:before {
     -webkit-transition: all .3s ease-out;
     transition: all .3s ease-out
 }
-#header form button,#header form input {
+
+#header form button, #header form input {
     border: none;
     margin: 0;
     padding: 0;
     outline: 0
 }
+
 #header form input {
     height: .25rem;
     font-size: .14rem;
     width: 100%
 }
+
 #header form button {
     width: .3rem;
     height: .4rem;
     background: 0 0;
     font-size: .18rem
 }
+
 #header form button i {
     margin: .08rem 0;
     display: block;
@@ -229,48 +274,58 @@ i.icon.github:before {
     height: .24rem;
     line-height: .24rem
 }
+
 #header.extend-search form .input {
     width: 1.5rem
 }
+
 #header.extend-search form input {
     margin-left: .06rem
 }
+
 #header .holder {
     height: .8rem;
     background: #FFF;
     -webkit-transition: height .3s ease-out;
     transition: height .3s ease-out
 }
+
 @media (max-width: 800px) {
-    #header form .input:after,#header nav ul:after {
+    #header form .input:after, #header nav ul:after {
         content: '';
         position: absolute;
         bottom: 0;
         left: 0
     }
+
     #header .wrapper {
         margin: .1rem
     }
+
     #header .hgroup {
         -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
         order: 2;
         margin-left: auto
     }
+
     #header .hgroup h1 {
         font-size: .18rem
     }
+
     #header nav {
         -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
         order: 1
     }
+
     #header nav .menu-btn {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         position: absolute;
     }
+
     #header nav .menu-btn .menu {
         margin: .08rem 0;
         display: block;
@@ -280,9 +335,10 @@ i.icon.github:before {
         line-height: .24rem;
         text-align: center
     }
+
     #header nav ul {
         position: absolute;
-        background: rgba(255,255,255,.9);
+        background: rgba(255, 255, 255, .9);
         width: 100%;
         top: .6rem;
         left: 0;
@@ -295,8 +351,9 @@ i.icon.github:before {
         transition: height .3s ease-out;
         -webkit-backdrop-filter: blur(6px);
         backdrop-filter: blur(6px);
-        display:none;
+        display: none;
     }
+
     #header nav ul:after {
         width: 200%;
         height: 1px;
@@ -306,20 +363,24 @@ i.icon.github:before {
         -webkit-transform-origin: 0 0;
         transform-origin: 0 0
     }
+
     #header nav li {
         margin: 5px .2rem;
     }
+
     #header.extend-menu nav ul {
         height: .34rem
     }
+
     #header form {
         -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
         order: 3
     }
+
     #header form .input {
         position: absolute;
-        background: rgba(255,255,255,.8);
+        background: rgba(255, 255, 255, .8);
         border-bottom: none;
         width: 100%;
         margin: 0;
@@ -331,11 +392,12 @@ i.icon.github:before {
         line-height: .24rem;
         -ms-flex-pack: distribute;
         justify-content: space-around;
-        -webkit-transition: height .3s ease-out,padding .3s ease-out;
-        transition: height .3s ease-out,padding .3s ease-out;
+        -webkit-transition: height .3s ease-out, padding .3s ease-out;
+        transition: height .3s ease-out, padding .3s ease-out;
         -webkit-backdrop-filter: blur(6px);
         backdrop-filter: blur(6px)
     }
+
     #header form .input:after {
         width: 200%;
         height: 1px;
@@ -345,24 +407,29 @@ i.icon.github:before {
         -webkit-transform-origin: 0 0;
         transform-origin: 0 0
     }
+
     #header form input {
         border-bottom: none;
         margin: 0 3%;
         padding: 0;
         width: 94%;
-        background: rgba(255,255,255,.8)
+        background: rgba(255, 255, 255, .8)
     }
+
     #header.extend-search form .input {
         width: 100%;
         padding: 3px 0;
         height: 35px
     }
+
     #header.extend-search form input {
         margin: 0 3%
     }
-    #header.wechat .hgroup,#header.wechat nav .menu-btn {
+
+    #header.wechat .hgroup, #header.wechat nav .menu-btn {
         display: none
     }
+
     #header.wechat nav ul {
         position: static;
         background: 0 0;
@@ -370,10 +437,12 @@ i.icon.github:before {
         height: .4rem;
         line-height: .4rem
     }
+
     #header.wechat nav .home {
         margin-left: 0;
         display: block
     }
+
     #header.wechat form .input {
         background: #FFF;
         top: 0;
@@ -384,6 +453,7 @@ i.icon.github:before {
         width: 0;
         padding: .15rem 0
     }
+
     #header.wechat form input {
         border-bottom: none;
         margin: 0 3%;
@@ -391,14 +461,18 @@ i.icon.github:before {
         width: 94%;
         background: #FFF
     }
+
     #header.wechat.extend-search form .input {
         width: auto;
         left: 0
     }
-}.main {
-     background-color: #FFF;
-     padding: .01rem 0
- }
+}
+
+.main {
+    background-color: #FFF;
+    padding: .01rem 0
+}
+
 #wechat-img {
     width: 1px;
     height: 1px;
@@ -406,14 +480,17 @@ i.icon.github:before {
     position: fixed;
     pointer-events: none
 }
-.post .post-eof:after,.post .post-title a:before {
+
+.post .post-eof:after, .post .post-title a:before {
     content: '';
     left: 0;
     width: 100%
 }
+
 .main-hd {
     margin: 30px 36px -10px
 }
+
 .main-hd h1 {
     font-size: .24rem;
     font-weight: 400;
@@ -421,33 +498,39 @@ i.icon.github:before {
     line-height: .36rem;
     color: #32415B
 }
+
 .main-hd p {
     font-size: .14rem;
     line-height: 170%;
     color: #52617B;
     margin: .1rem 0 0
 }
+
 .post {
     margin: .3rem 0 0
 }
+
 .post .post-title {
     font-size: .24rem;
     margin: 0;
     line-height: .36rem;
     color: #32415B
 }
-#post .post .post-title{
+
+#post .post .post-title {
     font-size: 30px;
     line-height: 50px;
-    margin:10px 0;
+    margin: 10px 0;
 }
 
-.post .post-content,.post .post-excerpt {
+.post .post-content, .post .post-excerpt {
     margin-top: .2rem
 }
-.post .post-content,.post .post-excerpt .markdown,.post .post-excerpt-link {
+
+.post .post-content, .post .post-excerpt .markdown, .post .post-excerpt-link {
     margin-bottom: .2rem
 }
+
 .post .post-title a {
     color: #4183C4;
     display: inline-block;
@@ -459,6 +542,7 @@ i.icon.github:before {
     transition: color .2s;
     outline: 0
 }
+
 .post .post-title a:before {
     position: absolute;
     top: auto;
@@ -472,15 +556,18 @@ i.icon.github:before {
     -webkit-transform: scaleX(0);
     transform: scaleX(0)
 }
+
 .post .post-title a:hover {
     color: #1E70BF;
     text-decoration: none
 }
+
 .post .post-title a:hover:before {
     background-color: #2C76BF;
     -webkit-transform: scaleX(1);
     transform: scaleX(1)
 }
+
 .post .post-title .post-status {
     font-size: 75%;
     border-radius: 4px;
@@ -489,25 +576,30 @@ i.icon.github:before {
     background-color: #F2711C;
     color: #FFF
 }
+
 .post .publish-time {
     font-size: .14rem;
     line-height: .2rem;
     height: .2rem;
     color: #767778
 }
+
 .post .publish-time a {
     color: #666768
 }
+
 .post .post-excerpt-link a {
     font-weight: 500;
     -webkit-transition: all .2s ease-in;
     transition: all .2s ease-in;
     opacity: .7
 }
+
 .post .post-excerpt-link a:hover {
     opacity: 1;
     text-decoration: none
 }
+
 .post .post-eof {
     position: relative;
     height: auto;
@@ -516,6 +608,7 @@ i.icon.github:before {
     text-align: center;
     margin: 1em 0
 }
+
 .post .post-eof span {
     color: #8291AB;
     font-weight: 700;
@@ -529,36 +622,44 @@ i.icon.github:before {
     background-color: #FFF;
     padding: 0 .1rem
 }
+
 .post .post-eof:after {
     position: absolute;
     top: 50%;
     height: 0;
     border-bottom: 1px solid #CCC
 }
+
 .post .post-meta {
     font-size: .14rem;
     color: #5A5B5C;
     margin-bottom: .2rem
 }
+
 .post .post-meta p {
     line-height: .2rem;
     margin: .1rem 0
 }
+
 .post .post-meta a {
     color: #4183C4;
     word-break: break-all
 }
+
 .post .post-meta a:hover {
     color: #1E70BF;
     text-decoration: underline
 }
-#pager a:hover,.markdown a {
+
+#pager a:hover, .markdown a {
     text-decoration: none
 }
+
 #comments {
     margin: .3rem .36rem;
     min-height: 3.23rem
 }
+
 #comments h3 {
     margin: 0;
     text-align: left;
@@ -568,6 +669,7 @@ i.icon.github:before {
     border-bottom: 2px solid #EAEDEE;
     color: #7f929c
 }
+
 #comments h4 {
     margin: .6rem 0 .4rem;
     font-size: .2rem;
@@ -576,23 +678,28 @@ i.icon.github:before {
     font-weight: 400;
     color: #434547
 }
-.markdown dl dt,.markdown strong,.markdown table th {
+
+.markdown dl dt, .markdown strong, .markdown table th {
     font-weight: 700
 }
+
 #comments h4 span {
     display: inline-block;
     padding: .1rem 0;
     border-radius: 3px
 }
+
 #comments h4 span.load {
     -webkit-transition: all .3s ease-in;
     transition: all .3s ease-in;
     cursor: pointer;
     padding: .1rem .15rem
 }
+
 #comments h4 span.load:hover {
     background-color: #F5F5F5
 }
+
 #comments h4 span.anim {
     font-family: monospace;
     overflow: hidden;
@@ -600,6 +707,7 @@ i.icon.github:before {
     -webkit-animation: dash 2s steps(4) infinite;
     animation: dash 2s steps(4) infinite
 }
+
 #comments p {
     margin: 0;
     font-size: .15rem;
@@ -607,6 +715,7 @@ i.icon.github:before {
     line-height: .24rem;
     color: #95999B
 }
+
 @-webkit-keyframes dash {
     0% {
         width: 0;
@@ -617,122 +726,155 @@ i.icon.github:before {
         margin-right: 0
     }
 }
-.markdown hr:after,.markdown hr:before {
+
+.markdown hr:after, .markdown hr:before {
     display: table;
     content: ""
 }
+
 #pager a span {
     vertical-align: top
 }
-.markdown kbd,.markdown p {
+
+.markdown kbd, .markdown p {
     vertical-align: middle
 }
+
 #index .post {
     padding-bottom: .1rem;
     border-bottom: 1px solid #EEF2F8;
     margin-bottom: -.1rem
 }
+
 #page .post {
     margin-bottom: .4rem
 }
-#category .post-title,#search .post-title,#tag .post-title {
+
+#category .post-title, #search .post-title, #tag .post-title {
     font-size: .17rem;
     line-height: .28rem
 }
-#category .post-title a:before,#search .post-title a:before,#tag .post-title a:before {
+
+#category .post-title a:before, #search .post-title a:before, #tag .post-title a:before {
     bottom: .04rem
 }
-#category .post-excerpt,#search .post-excerpt,#tag .post-excerpt {
+
+#category .post-excerpt, #search .post-excerpt, #tag .post-excerpt {
     font-size: .16rem;
     line-height: 170%;
     color: #52617B;
     margin-top: .05rem
 }
-#category .post-excerpt p,#search .post-excerpt p,#tag .post-excerpt p {
+
+#category .post-excerpt p, #search .post-excerpt p, #tag .post-excerpt p {
     margin: 0
 }
-#category .publish-time,#search .publish-time,#tag .publish-time {
+
+#category .publish-time, #search .publish-time, #tag .publish-time {
     font-size: .16rem;
     line-height: 170%;
     color: #969798
 }
-#category .publish-time a,#search .publish-time a,#tag .publish-time a {
+
+#category .publish-time a, #search .publish-time a, #tag .publish-time a {
     color: #969798
 }
+
 #archives .post-archives {
     margin-bottom: .6rem
 }
+
 #archives .post-archives div {
     margin-bottom: .2rem
 }
+
 #archives .post-archives h2 {
     font-size: .18rem;
     margin: 0 0 .1rem;
     color: #32415B
 }
+
 #archives .post-archives ul {
     margin: 0 0 0 .15rem;
     padding: 0;
     color: #AAA
 }
+
 #archives .post-archives li {
     font-size: .15rem;
     line-height: .23rem;
     margin-bottom: .1rem
 }
+
 #archives .post-archives li span {
     margin-left: .05rem;
     color: #999
 }
+
 @media (max-width: 800px) {
     .post {
         margin: 15px 18px 0
     }
+
     .post .post-title {
         font-size: .2rem
     }
+
     .main-hd {
         margin: 15px 18px -10px
     }
+
     #pager {
         margin: 11px 18px 0
     }
+
     #comments {
         margin: 15px 18px
     }
-}.markdown {
-     font-size: .16rem;
-     line-height: 170%;
-     color: #32415B;
-     word-wrap: break-word
- }
-.markdown h1,.markdown h2,.markdown h3,.markdown h4,.markdown h5,.markdown h6 {
+}
+
+.markdown {
+    font-size: .16rem;
+    line-height: 170%;
+    color: #32415B;
+    word-wrap: break-word
+}
+
+.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
     margin: .24rem 0 .14rem
 }
+
 .markdown h1 {
     font-size: .22rem
 }
+
 .markdown h2 {
     font-size: .2rem;
     padding-bottom: .03rem;
     border-bottom: 1px solid #eef2f8
 }
+
 .markdown h3 {
     font-size: .19rem
 }
+
 .markdown h4 {
     font-size: .18rem
 }
+
 .markdown h5 {
     font-size: .17rem
 }
+
 .markdown h6 {
     font-size: .16rem
 }
-.markdown .image,.markdown blockquote,.markdown dl,.markdown ol,.markdown p,.markdown pre,.markdown table,.markdown ul {
+
+.markdown .image, .markdown blockquote, .markdown dl, .markdown ol, .markdown p, .markdown pre, .markdown table, .markdown ul {
     margin-top: 0;
     margin-bottom: 1.2em
 }
+
 .markdown hr {
     width: 100%;
     height: 0;
@@ -742,16 +884,20 @@ i.icon.github:before {
     border: none;
     border-bottom: 1px solid #D6D9DE
 }
+
 .markdown hr:after {
     clear: both
 }
+
 .markdown pre {
     -webkit-overflow-scrolling: touch
 }
-.markdown code,.markdown kbd,.markdown pre {
+
+.markdown code, .markdown kbd, .markdown pre {
     font-size: 1em;
     line-height: 150%
 }
+
 .markdown table {
     display: block;
     width: 100%;
@@ -762,16 +908,20 @@ i.icon.github:before {
     border-collapse: collapse;
     border-spacing: 0
 }
-.markdown table td,.markdown table th {
+
+.markdown table td, .markdown table th {
     padding: 6px 13px;
     border: 1px solid #C6C9CE
 }
+
 .markdown table tr {
     border-top: 1px solid #C6C9CE
 }
+
 .markdown table tr:nth-child(2n) {
     background-color: #F5F7FC
 }
+
 .markdown blockquote {
     margin-left: 0;
     margin-right: 0;
@@ -780,61 +930,76 @@ i.icon.github:before {
     border-left: 4px solid #828C9D;
     background-color: #F5F7FC
 }
-.markdown blockquote>:first-child {
+
+.markdown blockquote > :first-child {
     margin-top: 0
 }
-.markdown blockquote>:last-child {
+
+.markdown blockquote > :last-child {
     margin-bottom: 0
 }
-.markdown ol,.markdown ul {
+
+.markdown ol, .markdown ul {
     padding: 0 0 0 2em;
     margin-top: 0
 }
-.markdown ol li>p,.markdown ul li>p {
+
+.markdown ol li > p, .markdown ul li > p {
     margin-top: 16px
 }
-.markdown ol ol,.markdown ul ol {
+
+.markdown ol ol, .markdown ul ol {
     list-style-type: lower-roman
 }
-.markdown ol ol,.markdown ol ul,.markdown ul ol,.markdown ul ul {
+
+.markdown ol ol, .markdown ol ul, .markdown ul ol, .markdown ul ul {
     margin-top: 0;
     margin-bottom: 0
 }
-.markdown ol ol ol,.markdown ol ul ol,.markdown ul ol ol,.markdown ul ul ol {
+
+.markdown ol ol ol, .markdown ol ul ol, .markdown ul ol ol, .markdown ul ul ol {
     list-style-type: lower-alpha
 }
+
 .markdown dl {
     padding: 0
 }
+
 .markdown dl dt {
     padding: 0;
     margin-top: 16px;
     font-size: 1em;
     font-style: italic
 }
+
 .markdown dl dd {
     padding: 0 16px;
     margin-left: 0;
     margin-bottom: 16px
 }
+
 .markdown a {
     color: #4183C4;
     background-color: transparent
 }
-.markdown a:active,.markdown a:hover {
+
+.markdown a:active, .markdown a:hover {
     color: #1E70BF;
     outline: 0;
     text-decoration: underline
 }
+
 .markdown a:visited {
     color: #4C046F
 }
+
 .markdown img {
     border: 0;
     max-width: 100%;
     box-sizing: content-box;
     border-radius: 3px
 }
+
 .markdown .image {
     margin-left: auto;
     margin-right: auto;
@@ -843,32 +1008,38 @@ i.icon.github:before {
     background-size: .75rem .6rem;
     border-radius: 3px
 }
+
 .markdown .image img {
     display: block;
     width: 100%;
     background: #FFF
 }
+
 .markdown .image img.lazy {
     height: 0;
     visibility: hidden
 }
+
 .markdown .image.transparent img {
-    background-image: -webkit-linear-gradient(bottom left,#CCC 25%,transparent 25%,transparent 75%,#CCC 75%,#CCC),-webkit-linear-gradient(bottom left,#CCC 25%,transparent 25%,transparent 75%,#CCC 75%,#CCC);
-    background-image: linear-gradient(to top right,#CCC 25%,transparent 25%,transparent 75%,#CCC 75%,#CCC),linear-gradient(to top right,#CCC 25%,transparent 25%,transparent 75%,#CCC 75%,#CCC);
-    background-position: 0 0,8px 8px;
+    background-image: -webkit-linear-gradient(bottom left, #CCC 25%, transparent 25%, transparent 75%, #CCC 75%, #CCC), -webkit-linear-gradient(bottom left, #CCC 25%, transparent 25%, transparent 75%, #CCC 75%, #CCC);
+    background-image: linear-gradient(to top right, #CCC 25%, transparent 25%, transparent 75%, #CCC 75%, #CCC), linear-gradient(to top right, #CCC 25%, transparent 25%, transparent 75%, #CCC 75%, #CCC);
+    background-position: 0 0, 8px 8px;
     background-size: 16px 16px
 }
+
 .markdown code {
     padding: .1em 0;
     margin: 0 .3em;
     font-size: .14rem;
-    background-color: rgba(0,0,20,.04);
+    background-color: rgba(0, 0, 20, .04);
     border-radius: 2px
 }
-.markdown code:after,.markdown code:before {
+
+.markdown code:after, .markdown code:before {
     letter-spacing: -.2em;
     content: "\00a0"
 }
+
 .markdown pre {
     position: relative;
     padding: 0;
@@ -879,9 +1050,11 @@ i.icon.github:before {
     overflow: hidden;
     word-wrap: normal
 }
+
 .markdown pre.lines {
     counter-reset: line-number
 }
+
 .markdown pre.lines .line:before {
     display: inline-block;
     width: 2em;
@@ -897,6 +1070,7 @@ i.icon.github:before {
     counter-increment: line-number;
     content: counter(line-number)
 }
+
 .markdown pre:after {
     content: attr(data-lang);
     position: absolute;
@@ -909,8 +1083,9 @@ i.icon.github:before {
     opacity: .05;
     text-transform: uppercase;
     font-weight: 700;
-    font-family: Georgia,'Times New Roman'
+    font-family: Georgia, 'Times New Roman'
 }
+
 .markdown pre code {
     margin: 0;
     padding: 12px;
@@ -924,36 +1099,47 @@ i.icon.github:before {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch
 }
-.markdown pre code:after,.markdown pre code:before {
+
+.markdown pre code:after, .markdown pre code:before {
     content: normal
 }
-.markdown pre code .comment,.markdown pre code .meta {
+
+.markdown pre code .comment, .markdown pre code .meta {
     color: #969896
 }
-.markdown pre code .emphasis,.markdown pre code .quote,.markdown pre code .string,.markdown pre code .strong,.markdown pre code .template-variable,.markdown pre code .variable {
+
+.markdown pre code .emphasis, .markdown pre code .quote, .markdown pre code .string, .markdown pre code .strong, .markdown pre code .template-variable, .markdown pre code .variable {
     color: #df5000
 }
-.markdown pre code .keyword,.markdown pre code .selector-tag,.markdown pre code .type {
+
+.markdown pre code .keyword, .markdown pre code .selector-tag, .markdown pre code .type {
     color: #a71d5d
 }
-.markdown pre code .attribute,.markdown pre code .bullet,.markdown pre code .literal,.markdown pre code .symbol {
+
+.markdown pre code .attribute, .markdown pre code .bullet, .markdown pre code .literal, .markdown pre code .symbol {
     color: #0086b3
 }
-.markdown pre code .name,.markdown pre code .section {
+
+.markdown pre code .name, .markdown pre code .section {
     color: #63a35c
 }
+
 .markdown pre code .tag {
     color: #333
 }
-.markdown pre code .attr,.markdown pre code .selector-attr,.markdown pre code .selector-class,.markdown pre code .selector-id,.markdown pre code .selector-pseudo,.markdown pre code .title {
+
+.markdown pre code .attr, .markdown pre code .selector-attr, .markdown pre code .selector-class, .markdown pre code .selector-id, .markdown pre code .selector-pseudo, .markdown pre code .title {
     color: #795da3
 }
+
 .markdown pre code .addition {
     color: #55a532
 }
+
 .markdown pre code .deletion {
     color: #bd2c00
 }
+
 .markdown kbd {
     display: inline-block;
     padding: 3px 5px;
@@ -965,207 +1151,257 @@ i.icon.github:before {
     border-radius: 3px;
     box-shadow: inset 0 -1px 0 #bbb
 }
-.markdown>:first-child {
-    margin-top: 0!important
+
+.markdown > :first-child {
+    margin-top: 0 !important
 }
-.markdown>:last-child {
-    margin-bottom: 0!important
+
+.markdown > :last-child {
+    margin-bottom: 0 !important
 }
+
 footer {
     margin: .25rem 0 .05rem;
     font-size: .14rem;
     color: #636465
 }
+
 footer p {
     margin: 0;
     height: .28rem;
     line-height: .28rem;
     text-align: center
 }
+
 footer a {
     color: #4183C4
 }
+
 #monitor {
     width: 0;
     height: 0;
     overflow: hidden;
     opacity: 0
 }
+
 #comment li {
     list-style: none;
 }
+
 #comment ul {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
+
 .comment #respond {
-    margin:10px 0 0;
-    padding:0;
-    border:1px solid #ddd
+    margin: 10px 0 0;
+    padding: 0;
+    border: 1px solid #ddd
 }
+
 .commentnew {
-    background-color:#DFF0D8
+    background-color: #DFF0D8
 }
+
 .commentnew .c-main {
-    margin-bottom:5px
+    margin-bottom: 5px
 }
+
 .comment {
-    padding:12px 0 10px 0
+    padding: 12px 0 10px 0
 }
+
 .commentlist {
-    padding:0 20px
+    padding: 0 20px
 }
+
 .c-avatar {
-    width:36px;
-    height:36px;
-    background-color:#FFF;
-    float:left;
-    display:inline;
-    position:relative
+    width: 36px;
+    height: 36px;
+    background-color: #FFF;
+    float: left;
+    display: inline;
+    position: relative
 }
+
 .c-avatar .avatar {
-    display:block
+    display: block
 }
+
 .c-main {
-    margin-top:-2px;
+    margin-top: -2px;
     margin-left: 48px;
 }
+
 .c-main p {
-    font-size:12px;
-    margin-bottom:0
+    font-size: 12px;
+    margin-bottom: 0
 }
+
 .c-meta {
-    color:#bbb
+    color: #bbb
 }
+
 .c-author {
-    margin-right:10px
+    margin-right: 10px
 }
+
 .comment-reply-link {
-    margin-left:6px;
-    color:#428BCA;
+    margin-left: 6px;
+    color: #428BCA;
 }
+
 .comment-reply-link:hover {
-    color:#D9534F
+    color: #D9534F
 }
+
 .comment pre {
-    margin:3px 0 5px;
-    padding:7px 10px;
-    border-radius:1px
+    margin: 3px 0 5px;
+    padding: 7px 10px;
+    border-radius: 1px
 }
+
 .children .comment {
-    padding:12px 12px 10px 10px;
-    margin:8px 0 0 50px;
-    border-left:2px solid #eeeeee
+    padding: 12px 12px 10px 10px;
+    margin: 8px 0 0 50px;
+    border-left: 2px solid #eeeeee
 }
+
 .children .c-main p {
-    font-size:12px;
-    margin-right:0
+    font-size: 12px;
+    margin-right: 0
 }
+
 .children .c-meta {
-    padding-top:1px;
+    padding-top: 1px;
 }
-.c-meta{
+
+.c-meta {
     margin-bottom: 10px;
 }
+
 .c-floor {
-    float:right;
-    font-size:18px;
-    color:#dddddd
+    float: right;
+    font-size: 18px;
+    color: #dddddd
 }
+
 .comment:hover .c-floor {
-    color:#999999
+    color: #999999
 }
+
 .c-approved {
-    border-radius:2px;
-    background-color:#fbfbfb;
-    border:1px solid #ccc;
-    color:#999;
-    display:inline-block;
-    padding:1px 5px;
-    margin-top:4px
+    border-radius: 2px;
+    background-color: #fbfbfb;
+    border: 1px solid #ccc;
+    color: #999;
+    display: inline-block;
+    padding: 1px 5px;
+    margin-top: 4px
 }
+
 .wp-smiley {
-    margin-bottom:2px
+    margin-bottom: 2px
 }
+
 #comment {
-    margin:0;
-    font-size:14px;
-    padding:10px 0;
-    line-height:14px;
-    color:#999;
-    font-weight:normal;
-    border-bottom:dotted 1px #e6e6e6
+    margin: 0;
+    font-size: 14px;
+    padding: 10px 0;
+    line-height: 14px;
+    color: #999;
+    font-weight: normal;
+    border-bottom: dotted 1px #e6e6e6
 }
+
 #comment b {
-    font-weight:normal;
-    font-size:13px
+    font-weight: normal;
+    font-size: 13px
 }
+
 #commentform {
-    margin-bottom:0
+    margin-bottom: 0
 }
+
 .comt-title {
-    overflow:hidden;
-    padding:12px 20px;
-    background-color:#f7f7f7;
+    overflow: hidden;
+    padding: 12px 20px;
+    background-color: #f7f7f7;
     border-bottom: 1px solid #eee;
 }
+
 .comt-count {
-    float:right;
-    color:#999;
-    margin-bottom:5px
+    float: right;
+    color: #999;
+    margin-bottom: 5px
 }
+
 .comt {
-    padding:20px;
-    position:relative
+    padding: 20px;
+    position: relative
 }
+
 .comt-avatar {
-    height:28px;
-    width:28px
+    height: 28px;
+    width: 28px
 }
+
 .comt-avatar img {
-    border-radius:2px
+    border-radius: 2px
 }
+
 .comt-author {
-    margin:5px 10px 0 10px;
-    font-size:16px;
-    color:#666
+    margin: 5px 10px 0 10px;
+    font-size: 16px;
+    color: #666
 }
+
 .comt-author span {
-    color:#bbb;
-    margin-left:10px
+    color: #bbb;
+    margin-left: 10px
 }
+
 .comt-box {
     overflow: hidden;
 }
+
 .comt-area {
     margin-bottom: 5px;
 }
+
 .comt-ctrl {
-    position:relative;
+    position: relative;
     overflow: hidden;
 }
-.comt-addsmilies,.comt-addcode {
-    float:left;
-    color:#999;
-    padding:0 10px 0 10px
+
+.comt-addsmilies, .comt-addcode {
+    float: left;
+    color: #999;
+    padding: 0 10px 0 10px
 }
-.comt-addsmilies:hover,.comt-addcode:hover {
-    color:#666
+
+.comt-addsmilies:hover, .comt-addcode:hover {
+    color: #666
 }
+
 .comt-mailme {
     display: none;
 }
+
 #comment {
     *width: 98.3%
 }
+
 .comt-smilie {
     cursor: pointer;
     margin-top: 2px;
     display: inline-block;
 }
+
 .comt-smilie:hover {
     color: #666;
 }
+
 #comment-smilies {
     background-color: #EEEEEE;
     padding: 3px 5px;
@@ -1173,11 +1409,13 @@ footer a {
     position: relative;
     line-height: 0
 }
+
 #comment-smilies img {
     display: inline-block;
     padding: 3px;
     cursor: pointer;
 }
+
 #comment-smilies::after {
     position: absolute;
     top: -5px;
@@ -1190,78 +1428,97 @@ footer a {
     border-left: 5px solid rgba(0, 0, 0, 0);
     content: "";
 }
-#comment-content{
+
+#comment-content {
     resize: vertical;
 }
-#empty_comment{
-    height:50px;
-    line-height:50px;
-    font-size:16px;
+
+#empty_comment {
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
 
 }
-#comment-form{
-    padding-top:10px;
+
+#comment-form {
+    padding-top: 10px;
 }
-#comment-form .left{
-    width:45%;
+
+#comment-form .left {
+    width: 45%;
 }
-.comment-cancel{
-    display:none;
+
+.comment-cancel {
+    display: none;
 }
-#page-link .list{
+
+#page-link .list {
     padding-left: 0;
-    margin-top:20px;
+    margin-top: 20px;
 }
+
 #page-link .list:after {
-    content:" ";
-    clear:both;
-    display:block
+    content: " ";
+    clear: both;
+    display: block
 }
+
 #page-link .list li {
-    float:left;
-    width:50%;
+    float: left;
+    width: 50%;
     list-style: none;
-    position:relative;
-    -webkit-transition:all .3s ease-out;
-    transition:all .3s ease-out;
-    border-radius:5px;
+    position: relative;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    border-radius: 5px;
     margin-bottom: 30px;
 }
+
 #page-link .list li:hover img {
     transition: .5s;
     transform: rotate(360deg);
 }
+
 #page-link .list li a {
-    display:block;
-    padding:0 10px 0 30px;
-    height:90px;
+    display: block;
+    padding: 0 10px 0 30px;
+    height: 90px;
     text-decoration: none;
 }
+
 #page-link .list li a img {
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    position:absolute;
-    top:15px;
-    left:15px;
-    cursor:pointer
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer
 }
+
 #page-link .list li a h4 {
-    font-size:24px;
-    padding-top:25px
+    font-size: 24px;
+    padding-top: 25px
 }
-#page-link .list li a h4,.linkpage li a p {
-    cursor:pointer;
-    white-space:nowrap;
-    text-overflow:ellipsis;
-    overflow:hidden
+
+#page-link .list li a h4, .linkpage li a p {
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden
 }
+
 #page-link .list li a p {
-    font-size:14px;
-    color:#999
+    font-size: 14px;
+    color: #999
 }
+
 @media (max-width: 800px) {
-    #page-link .list li{
-        width:100%;
+    #page-link .list li {
+        width: 100%;
     }
+}
+
+.post-content pre code {
+    background: none;
 }

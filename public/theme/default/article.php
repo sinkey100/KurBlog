@@ -10,7 +10,9 @@
                     发表于 <a href="<?=$data['category']['url']?>"><?=$data['category']['title']?></a>
                 </div>
             </div>
+            <div class="post-content">
                 <?=$data['content']?>
+            </div>
             <h4 class="post-eof"><span>EOF</span></h4>
 
         </div>
