@@ -1,0 +1,110 @@
+{include file="template/header" /}
+<link rel="stylesheet" href="/static/admin/css/home.css">
+<h2 class="sub-header">统计信息</h2>
+<div class="col-sm-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">文章</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>本月</>
+                    <h3>{$data.article.monthNum}</h3>
+                </div>
+                <div class="col-md-6">
+                    <h4>所有</>
+                    <h3>{$data.article.allNum}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">页面</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>所有</>
+                    <h3>{$data.page.allNum}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">评论</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>本月</>
+                    <h3>{$data.comment.monthNum}</h3>
+                </div>
+                <div class="col-md-6">
+                    <h4>所有</>
+                    <h3>{$data.comment.allNum}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6">
+    <h2 class="sub-header">系统信息</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+
+            <tbody>
+                <tr>
+                    <td>KurBlog 程序版本</td>
+                    <td>{$system_data.KurBlog}</td>
+                </tr>
+                <tr>
+                    <td>ThinkPHP 内核版本</td>
+                    <td>{$system_data.ThinkPHP}</td>
+                </tr>
+                <tr>
+                    <td>服务器系统及 PHP</td>
+                    <td>{$system_data.serverInfo}</td>
+                </tr>
+                <tr>
+                    <td>服务器软件</td>
+                    <td>{$system_data.serverSoft}</td>
+                </tr>
+                <tr>
+                    <td>服务器 MySQL 版本</td>
+                    <td>{$system_data.dbVersion}</td>
+                </tr>
+                <tr>
+                    <td>附件上传限制</td>
+                    <td>{$system_data.fileUpload}</td>
+                </tr>
+                <tr>
+                    <td>当前数据库已使用</td>
+                    <td>{$system_data.dbSize}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="col-md-6 kurblog">
+    <h2 class="sub-header">KurBlog动态</h2>
+    <div class="list-group">
+       {volist name="notice" id="vo"}
+        <a href="{$vo.url}" target="_blank" class="list-group-item">
+            <h4 class="list-group-item-heading">{$vo.title}</h4>
+            <p class="list-group-item-text">{$vo.description}</p>
+        </a>
+        {/volist}
+    </div>
+</div>
+
+
+
+{include file="template/footer" /}

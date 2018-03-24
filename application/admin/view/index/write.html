@@ -1,0 +1,150 @@
+{include file="template/header" /}
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/static/admin/css/markdown.min.css">
+<link rel="stylesheet" href="/static/admin/css/write.css">
+<script src="/static/admin/js/markdown.js"></script>
+<script src="/static/admin/js/jquery.form.js"></script>
+<script src="/static/admin/js/write.js"></script>
+<form action="{:url('/admin/'.$action.'/update')}" method="POST">
+    <div class="table-responsive">
+        <h2 class="sub-header">{$title}</h2>
+        <div class="col-md-10">
+            <input type="hidden" name="id" id="id" value="{$id}">
+            <input type="hidden" id="controller" value="{$action}">
+            <input type="text" class="form-control" name="title" id="title" placeholder="在此输入文章标题" value="{$data.title}">
+            <textarea id="md-content" name="content">{$data.draft!='' ? $data.draft : $data.content}</textarea>
+        </div>
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">发布选项</h3>
+                </div>
+                <div class="panel-body">
+
+                    <div class="form-group status">
+                        <p>文章状态</p>
+                        <label class="radio-inline">
+                            {php}
+                            //Mark!!! 此处遗留ThinkPHP5.0.9的BUG  三元运算符判断==0 返回失效
+                            $t = ($data['status']==1 || ($data['status']==0 && empty($data['content']))) ? 'checked' : '';
+                            {/php}
+                            <input type="radio" name="status" value="1" {$t}> 发布
+                        </label>
+                        <label class="radio-inline">
+                            {php}
+                            $t = ($data['status']==0 && !empty($data['content'])) ? 'checked' : '';
+                            {/php}
+                            <input type="radio" name="status" value="0" {$t}> 草稿
+                        </label>
+                        {eq name="$action" value="Article"}
+                        <label class="radio-inline">
+                            <input type="radio" name="status" value="2" {$data.status==2 ? 'checked' : ''}> 加密
+                        </label>
+                        {/eq}
+                    </div>
+                    {eq name="$action" value="Article"}
+                    <div class="form-group password" {$data.password ? '' : 'style="display:none"'}>
+                        <label for="password">密码</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="文章密码" value="{$data.password}">
+                    </div>
+                    {/eq}
+                <div class="form-group more">
+                    <label>
+                        <input type="checkbox"> 更多选项
+                    </label>
+                </div>
+                <div id="more">
+                    <div class="form-group">
+                        <label for="slug">别名&#12288;&#12288;</label>
+                        <input type="text" id="slug" class="form-control" name="slug" placeholder="别名" value="{$data.slug}">
+                    </div>
+                    <div class="form-group">
+                        <label for="create_time">创建时间</label>
+                        <input type="text" id="create_time" class="form-control" name="create_time" placeholder="创建时间" value="{$data.create_time}">
+                    </div>
+                    <div class="form-group">
+                        <label for="update_time">更新时间</label>
+                        <input type="text" id="update_time" class="form-control" name="update_time" placeholder="更新时间" value="{$data.update_time}">
+                    </div>
+                    <div class="form-group">
+                        <label for="allow_comment">
+                            <input type="checkbox" id="allow_comment" name="allow_comment" {$data.allow_comment==1 ? 'checked' : ''}> 允许评论
+                        </label>
+                    </div>
+                </div>
+                <button class="btn btn-primary">提交</button>
+                <div class="btn btn-default draft">保存草稿</div>
+            </div>
+        </div>
+        {eq name="$action" value="Article"}
+        <div class="panel panel-default" id="category">
+            <div class="panel-heading">
+                <h3 class="panel-title">文章分类</h3>
+            </div>
+            <div class="panel-body">
+                {volist name="category" id="vo"}
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="category_id" value="{$key}" {$data.category_id==$key ? 'checked' : ''}>
+                        {$vo}
+                    </label>
+                </div>
+                {/volist}
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">缩略图</h3>
+            </div>
+            <div class="panel-body text-center">
+                <input type="hidden" name="thumb" id="thumb" value="{$data.thumb}">
+                <img src="{$data.thumb}" class="thumb-img" alt="" {$data.thumb ? '' : 'style="display:none"'}>
+                <div class="btns">
+                    <button type="button" class="btn btn-default thumb-upload">上传图片</button>
+                    <button type="button" class="btn btn-default thumb-clear" {$data.thumb ? '' : 'style="display:none"'}>清除图片</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">文章摘要</h3>
+            </div>
+            <div class="panel-body">
+                <textarea class="form-control description" name="description" rows="3">{$data.description}</textarea>
+            </div>
+        </div>
+        {/eq}
+        {eq name="$action" value="Page"}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">页面模板</h3>
+            </div>
+            <div class="panel-body">
+                <select class="form-control" name="template">
+                    {volist name="template" id="vo"}
+                    <option value="{$vo.id}" {$data.template==$vo.id ? 'selected' : ''}>{$vo.name}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+        {/eq}
+    </div>
+    </div>
+</form>
+
+<input id="fileupload" type="file" class="hidden" name="image">
+<script>
+    var simplemde = new SimpleMDE({
+        element: document.getElementById("md-content"),
+        spellChecker: false,
+        autoDownloadFontAwesome: false
+    });
+    //自动保存草稿
+    setInterval(function(){
+        autoSave()
+    },30000)
+</script>
+
+
+{include file="template/footer" /}

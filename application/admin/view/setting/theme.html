@@ -1,0 +1,29 @@
+{include file="template/header" /}
+<link rel="stylesheet" href="/static/admin/css/theme.css">
+<script src="/static/admin/js/theme.js"></script>
+<h2 class="sub-header">主题设置</h2>
+<div class="row">
+    {volist name="data" id="vo"}
+    <div id="theme_{$vo.id}" class="theme {eq name="$vo.active" value="true"}active{/eq}">
+        <div class="thumb">
+            <img src="{$vo.thumb}" alt="">
+            <div class="more form-inline">
+                <button type="submit" data-id="{$vo.id}" class="btn btn-default btn-detail">查看详情</button>
+                {neq name="$vo.active" value="true"}
+                <button type="submit" data-id="{$vo.id}" class="btn btn-primary activate">启用</button>
+                {/neq}
+            </div>
+        </div>
+        <div class="info" data-version="{$vo.version}" data-author_url="{$vo.author_url}" data-author="{$vo.author}" data-description="{$vo.description}" >
+            <div class="title">{$vo.theme_name}</div>
+        </div>
+    </div>
+    {/volist}
+</div>
+<div class="detail hidden">
+    <div class="info">
+    </div>
+</div>
+
+{include file="template/footer" /}
+

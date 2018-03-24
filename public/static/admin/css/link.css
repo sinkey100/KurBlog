@@ -1,0 +1,9 @@
+.cancel{
+    display:none;
+}
+.table-responsive{
+    overflow: inherit;
+}
+table .weight{
+    width:50px;
+}

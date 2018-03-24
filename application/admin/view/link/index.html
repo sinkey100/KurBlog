@@ -1,0 +1,75 @@
+{include file="template/header" /}
+<link rel="stylesheet" href="/static/admin/css/link.css">
+<script src="/static/admin/js/link.js"></script>
+<div class="table-responsive">
+    <div class="col-md-7">
+        <h2 class="sub-header">链接列表</h2>
+        <form method="POST" action="{:url('admin/link/order')}">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>排序</th>
+                    <th>名称</th>
+                    <th>URL地址</th>
+                    <th>-</th>
+                </tr>
+                </thead>
+                <tbody>
+                {volist name="list" id="vo"}
+                <tr id="li_{$vo.id}">
+                    <td>
+                        <div class="form-group">
+                            <input type="text" name="weight[{$vo.id}]" class="form-control weight text-center"  value="{$vo.weight}">
+                        </div>
+                    </td>
+                    <td class="title">{$vo.title}</td>
+                    <td class="url">{$vo.url}</td>
+                    <td class="description hidden">{$vo.description}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                操作 <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a data-id="{$vo.id}" class="alter">修改</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a data-id="{$vo.id}" class="delete">删除</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                {/volist}
+                </tbody>
+            </table>
+            <button type="submit" class="submit btn btn-default">更新排序</button>
+        </form>
+    </div>
+    <div class="col-md-5 edit">
+        <h2 class="sub-header">添加链接</h2>
+        <form method="POST" action="{:url('admin/link/update')}" id="menu-form">
+            <input type="hidden" name="id" id="id" value="0">
+            <div class="form-group">
+                <label for="title">名称</label>
+                <input type="text" class="form-control" id="title" name="title">
+                <p class="help-block">这将展示在链接栏。</p>
+            </div>
+            <div class="form-group">
+                <label for="url">URL地址</label>
+                <input type="text" class="form-control" id="url" name="url">
+                <p class="help-block">要跳转到的地址，通常以http/https开头。</p>
+            </div>
+            <div class="form-group">
+                <label for="description">描述</label>
+                <input type="text" class="form-control" id="description" name="description">
+                <p class="help-block">[可空]如何描述这个链接？</p>
+            </div>
+            <button type="submit" class="submit btn btn-primary">提交</button>
+            <div class="btn btn-default cancel">取消添加</div>
+        </form>
+    </div>
+
+
+</div>
+
+
+{include file="template/footer" /}

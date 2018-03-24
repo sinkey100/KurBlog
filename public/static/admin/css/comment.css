@@ -1,0 +1,17 @@
+.table-responsive{
+    overflow: inherit;
+}
+.avatar{
+    width:55px;
+    border-radius: 50%;
+    margin-right:8px;
+}
+.avatar:hover{
+    border-radius: 5px;
+}
+.col_1{
+    width:80px;
+}
+.col_1 span{
+    color:red;
+}

@@ -1,0 +1,17 @@
+.menu-type p{
+    font-weight:700;
+}
+.cancel{
+    display:none;
+}
+.table-responsive{
+    overflow: inherit;
+}
+.parent-menu .title::before{
+    content:"---";
+    color:#999;
+    padding-right: 5px;
+}
+table .weight{
+    width:50px;
+}

@@ -1,0 +1,11 @@
+.cancel{
+    margin-left:10px;
+    display:none;
+}
+.col-md-6{
+    padding-left:0;
+    padding-right:30px;
+}
+.table-responsive{
+    overflow: inherit;
+}

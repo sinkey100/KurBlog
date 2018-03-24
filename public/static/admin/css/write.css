@@ -1,0 +1,40 @@
+.col-md-8{
+    padding-left:0;
+    padding-right:30px;
+}
+.CodeMirror-fullscreen{
+    z-index: 1000;
+}
+.editor-toolbar.fullscreen{
+    z-index:1500;
+}
+.editor-toolbar{
+    margin-top:15px;
+}
+.fullscreen{
+    margin-top:0;
+}
+.description{
+    resize: vertical;
+}
+.draft{
+    margin-left:10px;
+}
+label{
+    font-weight: 400;
+}
+#category .panel-body{
+    padding-top:3px;
+    padding-bottom:3px
+}
+.more{
+    margin-bottom:5px;
+    margin-top:-5px;
+}
+#more{
+    display:none;
+}
+.thumb-img{
+    max-width:100%;
+    margin-bottom:15px;
+}

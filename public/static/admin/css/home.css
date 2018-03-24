@@ -1,0 +1,15 @@
+.col-sm-4{
+    padding-left:0;
+}
+.panel .col-md-6,.panel .col-md-12{
+    text-align: center;
+}
+.col-md-6{
+    padding-left:0;
+}
+.sub-header{
+    border-bottom:0;
+}
+.kurblog{
+    padding-left:30px;
+}

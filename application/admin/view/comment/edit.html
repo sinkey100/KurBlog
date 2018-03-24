@@ -1,0 +1,32 @@
+{include file="template/header" /}
+<link rel="stylesheet" href="/static/admin/css/comment.css">
+<script src="/static/admin/js/comment.js"></script>
+<h2 class="sub-header">修改评论</h2>
+<form method="POST" action="{:url('/admin/comment/update/')}">
+    <input type="hidden" name="id" value="{$data.id}">
+    <div class="form-group">
+        <label for="email">邮箱</label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="{$data.email}">
+    </div>
+
+    <div class="form-group">
+        <label for="author">用户名</label>
+        <input type="text" class="form-control" name="author" id="author" value="{$data.author}">
+    </div>
+
+    <div class="form-group">
+        <label for="url">地址</label>
+        <input type="text" class="form-control" name="url" id="url" value="{$data.url}">
+    </div>
+
+    <div class="form-group">
+        <label for="content">内容</label>
+        <textarea class="form-control" id="content" name="content" rows="3">{$data.content}</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-default">提交</button>
+</form>
+
+
+
+{include file="template/footer" /}

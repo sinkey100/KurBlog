@@ -1,0 +1,28 @@
+{include file="template/header" /}
+
+<div class="page-header">
+    <h1>转换到KurBlog</h1>
+</div>
+
+<div>
+    <h3>恭喜，转换完成！</h3>
+    <ul>
+    {volist name="count" id="vo"}
+        <li>已转换 {$vo.name}： {$vo.count}</li>
+    {/volist}
+    </ul>
+
+    <br/><b>请注意转换后的一些问题</b>：
+    <ul>
+        <li>KurBlog程序没有多级分类，且每篇文章仅支持选择一个分类，转换程序只会将文章对应到一个分类，请在转换完成后自行检查。</li>
+        <li>KurBlog采用MarkDown写作，转换后的文章内容依然是html格式，无法自动转换为Markdown，但在前台仍然可以正常显示。</li>
+        <li>您需要将附件、图片移动到KurBlog，通常是将 <code>/wp-content/uploads/</code>目录(目录结构仍需包含 <code>/wp-content/uploads/</code>)移动到 <code>/public/</code>根目录。</li>
+        <li>系统设置和用户，不会被转换，需要您自行在后台编辑。</li>
+    </ul>
+
+</div>
+
+
+
+
+{include file="template/footer" /}

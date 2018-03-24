@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/admin/css/login.css">
+
+</head>
+<body>
+
+
+<div class="wrapper">
+
+    <div class="container">
+        <h1><a href="/"><img src="/static/admin/img/login_logo.png" alt="" /></a></h1>
+        <form class="form" action="{:url('admin/login/index')}" method="post" autocomplete="off">
+            <input name="username" type="text" placeholder="用户名">
+            <input name="password" type="password" placeholder="密码">
+            <button type="submit" id="login-button">登录</button>
+        </form>
+    </div>
+
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+</div>
+
+<script type="text/javascript">
+    $('#login-button').click(function(event){
+        event.preventDefault();
+        $('form').fadeOut(500);
+        $('.wrapper').addClass('form-success');
+        $('.form').submit();
+    });
+</script>
+
+</body>
+</html>

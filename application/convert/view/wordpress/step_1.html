@@ -1,0 +1,44 @@
+{include file="template/header" /}
+
+<div class="page-header">
+    <h1>转换到KurBlog</h1>
+</div>
+
+<div>
+    <h3>数据库信息看起来是正确的，请选择需要转换的内容</h3>
+    <form class="form-horizontal" method="POST" action="{:url('convert/wordpress/step_2')}">
+
+        <label class="checkbox-inline">
+            <input type="checkbox" name="action[]" value="article" checked> 文章
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" name="action[]" value="category" checked> 分类
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" name="action[]" value="page" checked> 页面
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" name="action[]" value="comment" checked> 评论
+        </label>
+
+        <br />
+        <br />
+
+        <button type="submit" id="start" class="btn btn-default">开始转换</button>
+
+    </form>
+
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#start").click(function(){
+            $("#start").html('正在转换，请勿重复刷新页面。')
+            $("#start").attr('disabled',"true");
+            $(".form-horizontal").submit();
+        })
+    })
+</script>
+
+
+{include file="template/footer" /}

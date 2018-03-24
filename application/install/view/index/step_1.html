@@ -1,0 +1,57 @@
+{include file="template/header" /}
+
+<div class="page-header">
+    <h1>安装 KurBlog</h1>
+</div>
+
+<div>
+    <h3>请输入MySQL数据库配置信息</h3>
+    <p>通常可以您可以向服务商索要到这些信息</p>
+    <br />
+    <form class="form-horizontal" method="POST" action="{:url('install/index/step_2')}">
+        <div class="form-group">
+            <label for="db_host" class="col-sm-2 control-label">数据库地址</label>
+            <div class="col-sm-10">
+                <input type="text" name="db_host" class="form-control" id="db_host" value="localhost">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="db_user" class="col-sm-2 control-label">数据库用户名</label>
+            <div class="col-sm-10">
+                <input type="text" name="db_user" class="form-control" id="db_user" value="root">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="db_password" class="col-sm-2 control-label">数据库密码</label>
+            <div class="col-sm-10">
+                <input type="text" name="db_password" class="form-control" id="db_password" value="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="db_name" class="col-sm-2 control-label">数据库名</label>
+            <div class="col-sm-10">
+                <input type="text" name="db_name" class="form-control" id="db_name" value="kurblog">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="db_prefix" class="col-sm-2 control-label">数据库前缀</label>
+            <div class="col-sm-10">
+                <input type="text" name="db_prefix" class="form-control" id="db_prefix" value="kur_">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="db_port" class="col-sm-2 control-label">数据库端口</label>
+            <div class="col-sm-10">
+                <input type="text" name="db_port" class="form-control" id="db_port" value="3306">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">下一步</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+{include file="template/footer" /}

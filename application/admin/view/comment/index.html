@@ -1,0 +1,60 @@
+{include file="template/header" /}
+<link rel="stylesheet" href="/static/admin/css/comment.css">
+<script src="/static/admin/js/comment.js"></script>
+<div class="table-responsive" data-status="{$status}" id="comment-list">
+    <ul class="nav nav-tabs">
+        <li role="presentation" {eq name="$status" value="all"} class="active"{/eq}><a href="/admin/comment/">所有</a></li>
+        <li role="presentation" {eq name="$status" value="1"} class="active"{/eq}><a href="/admin/comment/index/1/">已发布</a></li>
+        <li role="presentation" {eq name="$status" value="2"} class="active"{/eq}><a href="/admin/comment/index/2/">待审核</a></li>
+    </ul>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th class="col_1">#</th>
+            <th>评论人</th>
+            <th>内容</th>
+            <th>评论时间</th>
+            <th>-</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="comment_list" id="vo"}
+        <tr id="li_{$vo.id}">
+            <td class="col_1">
+                {$vo.id}
+                <div class="status">
+                    {$vo.status_str}
+                </div>
+            </td>
+            <td class="title clearfix">
+                <img src="{$avatar($vo.email)}" alt="" class="avatar show pull-left">
+                <div class="pull-left">
+                    {$vo.author}<br />{$vo.email}<br /><a href="{$vo.url}" target="_blank">{$vo.url}</a>
+                </div>
+            </td>
+            <td class="category_id">{$vo.content}</td>
+            <td class="time">{$vo.time}</td>
+            <td>
+                <!-- Single button -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        操作 <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a data-id="{$vo.id}" class="u-status-1">设为 已发布</a></li>
+                        <li><a data-id="{$vo.id}" class="u-status-0">设为 待审核</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a data-id="{$vo.id}" class="edit">修改</a></li>
+                        <li><a data-id="{$vo.id}" class="delete">删除</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    {$comment_list->render()}
+</div>
+
+
+{include file="template/footer" /}

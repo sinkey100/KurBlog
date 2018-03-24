@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>演示：PHP+jQuery+Ajax多图片上传</title>
+
+<script type="text/javascript" src="http://t.thinkphp.com/static/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../../a/jquery.wallform.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#photoimg').change(function(){
+		var status = $("#up_status");
+		var btn = $("#up_btn");
+		$("#imageform").ajaxForm({
+			target: '#preview', 
+			beforeSubmit:function(){
+				status.show();
+				btn.hide();
+			}, 
+			success:function(){
+				status.hide();
+				btn.show();
+			}, 
+			error:function(){
+				status.hide();
+				btn.show();
+		} }).submit();
+	});
+});
+</script>
+</head>
+
+<body>
+
+<img src="loader.gif" alt="uploading"/>
+        
+        <form id="imageform" method="post" enctype="multipart/form-data" action="../../../../../a/upload.php">
+			<div id="up_status" style="display:none"><img src="loader.gif" alt="uploading"/></div>
+			<div id="up_btn" class="btn">
+				<span>添加图片</span>
+				<input id="photoimg" type="file" name="photoimg">
+			</div>
+		</form>
+		<div id="preview"></div>
+	
+	
+	
+
+	
+	
+<div onclick="$('#photoimg').click();">aaaa</div>
+  
+</body>
+</html>

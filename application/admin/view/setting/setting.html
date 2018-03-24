@@ -1,0 +1,243 @@
+{include file="template/header" /}
+<link rel="stylesheet" href="/static/admin/css/setting.css">
+<script src="/static/admin/js/setting.js"></script>
+<div class="table-responsive">
+
+
+    <ul class="nav nav-tabs">
+        {volist name="class" id="vo"}
+        <li role="presentation" {eq name="$key" value="$action"}class="active"{/eq}><a href="/admin/setting/{$key}/">{$vo}</a></li>
+        {/volist}
+    </ul>
+
+    <div class="col-md-5" role="main">
+    <form  class="form-horizontal"action="{:url('/admin/setting/update')}" method="POST">
+        <input type="hidden" name="action" value="{$action}">
+        {eq name="$action" value="common"}
+        <div class="form-group">
+            <label for="blog_name" class="col-sm-2 control-label">网站名称</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="blog_name" id="blog_name" value="{$data.blog_name}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sub_title" class="col-sm-2 control-label">副标题</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="sub_title" id="sub_title" value="{$data.sub_title}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="siteurl" class="col-sm-2 control-label">网站地址</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="siteurl" id="siteurl" value="{$data.siteurl}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="admin_email" class="col-sm-2 control-label">管理员邮箱</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="admin_email" id="admin_email" value="{$data.admin_email}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="icp_num" class="col-sm-2 control-label">ICP备案号</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="icp_num" id="icp_num" value="{$data.icp_num}">
+            </div>
+        </div>
+        {/eq}
+        {eq name="$action" value="home"}
+        <div class="form-group">
+            <div class="form-group">
+                <label for="per_page" class="col-sm-2 control-label">每页文章数</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="per_page" id="per_page" value="{$data.per_page}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description_length" class="col-sm-2 control-label">描述长度</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="description_length" id="description_length" value="{$data.description_length}">
+                </div>
+            </div>
+            <label class="col-sm-2 control-label">首页展示</label>
+            <div class="col-sm-10 home">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="home" id="home" value="article" {$data.home.type=='article' ? 'checked' : ''}> 您的最新文章
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="home" id="page" value="page" {$data.home.type=='page' ? 'checked' : ''}> 固定页面
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="home" id="category" value="category" {$data.home.type=='category' ? 'checked' : ''}> 固定分类
+                    </label>
+                </div>
+                {php}
+                $t = $data['home']['type']=="article" ? 'style="display:none"' : '';
+                {/php}
+                <div class="form-inline value-id" {$t}>
+                    <label for="value-id">{$data.home.type=='page' ? '页面' : '分类'}ID</label>
+                    <input type="text" class="form-control" id="value-id" name="value" value="{$data.home.value}">
+                </div>
+            </div>
+        </div>
+        {/eq}
+        {eq name="$action" value="comment"}
+        <div class="form-group">
+            <label class="col-sm-2 control-label">评论排序</label>
+            <div class="col-sm-10 home">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="order_by_time" value="desc" {$data.order_by_time=='desc' ? 'checked' : ''}> 按最新新旧排序
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="order_by_time" value="asc" {$data.order_by_time=='asc' ? 'checked' : ''}> 按评论先后排序
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">评论权限</label>
+            <div class="col-sm-10 home">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="need_review" value="1" {$data.need_review==1 ? 'checked' : ''}> 评论需要审核
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        {php}
+                        //ThinkPHP5.0.9 BUG 三元运算无法判断==0
+                        $t = $data['need_review']==0 ? 'checked' : '';
+                        {/php}
+                        <input type="radio" name="need_review"  value="0" {$t}> 评论无需审核
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">邮件通知</label>
+            <div class="col-sm-10 home">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="comment_mail" value="true" {$data.comment_mail=='true' ? 'checked' : ''}> 开启
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="comment_mail" value="false" {$data.comment_mail=='false' ? 'checked' : ''}> 关闭
+                    </label>
+                </div>
+            </div>
+        </div>
+        {/eq}
+        {eq name="$action" value="mail"}
+        <div class="form-group">
+            <label for="smtp_server" class="col-sm-2 control-label">SMTP服务器地址</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="smtp_server" id="smtp_server" value="{$data.smtp_server}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="smtp_port" class="col-sm-2 control-label">SMTP服务器端口</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="smtp_port" id="smtp_port" value="{$data.smtp_port}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">是否需要SSL</label>
+            <div class="col-sm-10 home">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="smtp_ssl" value="ssl" {$data.smtp_ssl=='ssl' ? 'checked' : ''}> 使用SSL
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="smtp_ssl" value="not" {$data.smtp_ssl=='not' ? 'checked' : ''}> 不需要
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="smtp_mail" class="col-sm-2 control-label">发件人邮箱地址</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="smtp_mail" id="smtp_mail" value="{$data.smtp_mail}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="smtp_password" class="col-sm-2 control-label">发件人邮件密码</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="smtp_password" id="smtp_password" value="{$data.smtp_password}">
+            </div>
+        </div>
+        {/eq}
+        {eq name="$action" value="rewrite"}
+        <div class="form-group">
+            <label class="col-sm-2 control-label">固定链接</label>
+            <div class="col-sm-10 home">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="rewrite" value="id" {$data.rewrite=='id' ? 'checked' : ''}> 按ID展示
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="rewrite" value="slug" {$data.rewrite=='slug' ? 'checked' : ''}> 按别名展示
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="bs-callout bs-callout-info" id="callout-xref-input-group">
+            <h4>按ID展示</h4>
+                在浏览器地址栏中显示的链接，将会用以下形式展示：<br /><br />
+                文章：<code>http://{$_SERVER['HTTP_HOST']}/article/1</code><br />
+                页面：<code>http://{$_SERVER['HTTP_HOST']}/page/15</code><br />
+                分类：<code>http://{$_SERVER['HTTP_HOST']}/category/4</code><br />
+            </p>
+        </div>
+        <div class="bs-callout bs-callout-info" id="callout-xref-input-group">
+            <h4>按别名展示</h4>
+            在浏览器地址栏中显示的链接，将会用以下形式展示：<br /><br />
+            文章：<code>http://{$_SERVER['HTTP_HOST']}/article/Hello-World</code><br />
+            页面：<code>http://{$_SERVER['HTTP_HOST']}/page/test-page</code><br />
+            分类：<code>http://{$_SERVER['HTTP_HOST']}/category/diary</code><br />
+            <br /><i>* 没有设置别名的文章/页面/分类，将依然以ID展示。</i>
+            </p>
+        </div>
+        {/eq}
+        {eq name="$action" value="profile"}
+        <div class="form-group">
+            <label for="username" class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="username" id="username" value="{$data.username}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" name="password" id="password" placeholder="如不修改请留空">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">邮箱地址</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" name="email" id="email" value="{$data.email}">
+            </div>
+        </div>
+        {/eq}
+        <button type="submit" class="btn btn-default">提交</button>
+    </form>
+    </div>
+
+
+</div>
+
+
+{include file="template/footer" /}
