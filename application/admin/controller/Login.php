@@ -9,7 +9,8 @@ class Login extends Controller
 {
     public function Index(){
         //如已登录，跳回首页
-        if(!empty(Session::get('member.uid'))){
+        $flag = Session::get('member.uid');
+        if($flag){
             $this->redirect('/admin');
             return false;
         }

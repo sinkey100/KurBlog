@@ -171,7 +171,7 @@ class Setting extends Base
                 'email'     => $data['email']
             ];
             if(!empty($data['password'])){
-                $member['password'] = md5(md5($data['password']).$data['password']);
+                $member['password'] = md5(sha1($data['password']));
             }
             $result = MemberModel::update($member);
             if($result && !empty($data['password'])){

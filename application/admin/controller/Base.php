@@ -10,7 +10,8 @@ class Base extends Controller
 {
 
     public function _initialize() {
-        if (empty(Session::get('member.uid'))) {
+        $flag = Session::get('member.uid');
+        if (!$flag) {
             $this->redirect('/admin/login');
             return false;
         }
