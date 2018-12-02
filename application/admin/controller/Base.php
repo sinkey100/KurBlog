@@ -10,6 +10,7 @@ class Base extends Controller
 {
 
     public function _initialize() {
+        checkInstall();
         $flag = Session::get('member.uid');
         if (!$flag) {
             $this->redirect('/admin/login');

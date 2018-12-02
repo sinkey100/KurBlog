@@ -27,6 +27,7 @@
                 <td class="title">{$vo.title}</td>
                 <td>{$vo.menu_type}</td>
                 <td class="value">{$vo.value}</td>
+                <td class="hidden class">{$vo.class}</td>
                 <td>
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -78,6 +79,11 @@
                 <label for="value">内容</label>
                 <input type="text" class="form-control" id="value" name="value">
                 <p class="help-block">文章、页面、文章分类请输入对应ID，链接请输入URL地址。</p>
+            </div>
+            <div class="form-group">
+                <label for="value">标识Class</label>
+                <input type="text" class="form-control" id="class" name="class">
+                <p class="help-block">用于主题中区分不同菜单，通常可以留空。</p>
             </div>
             <button type="submit" class="submit btn btn-primary">提交</button>
             <div class="btn btn-default cancel">取消添加</div>

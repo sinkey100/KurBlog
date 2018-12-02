@@ -137,3 +137,14 @@ function sendMail($to=[],$subject='',$content=''){
     ]);
     return $mailer->send($mail);
 }
+
+/**
+ * 检测是否安装
+ */
+function checkInstall(){
+    $res = config('database');
+    if($res['hostname'] == '{db_host}' || empty($res['database'])){
+        header('Location: '.url('install/index/index'));
+        exit;
+    }
+}

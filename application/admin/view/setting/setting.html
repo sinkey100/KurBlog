@@ -232,6 +232,121 @@
             </div>
         </div>
         {/eq}
+        {eq name="$action" value="seo"}
+
+        <ul id="seo-tag-menu" class="nav nav-pills" role="tablist">
+            <li role="presentation" class="index active" data-id="index"><a>首页</a></li>
+            <li role="presentation" class="list" data-id="list"><a>文章列表页</a></li>
+            <li role="presentation" class="article" data-id="article"><a>文章阅读页</a></li>
+            <li role="presentation" class="page" data-id="page"><a>页面</a></li>
+        </ul>
+        <div class="form-seo" style="margin:30px 0;">
+            <!------------------  index -------------------------->
+            <div class="form-group index">
+                <label for="seo_index_title" class="col-sm-2 control-label">标题</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="seo_index_title"
+                           id="seo_index_title" value="{$data.seo_index_title}">
+                </div>
+            </div>
+            <div class="form-group index">
+                <label for="seo_index_keywords" class="col-sm-2 control-label">关键词</label>
+                <div class="col-sm-10">
+                    <input class="form-control" name="seo_index_keywords"
+                           id="seo_index_keywords" value="{$data.seo_index_keywords}">
+                </div>
+            </div>
+            <div class="form-group index">
+                <label for="seo_index_description" class="col-sm-2 control-label">描述</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" name="seo_index_description"
+                              id="seo_index_description" cols="30" rows="10">{$data.seo_index_description}</textarea>
+                </div>
+            </div>
+            <!------------------  list -------------------------->
+            <div class="form-group list" style="display:none">
+                <label for="seo_list_title" class="col-sm-2 control-label">标题</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="seo_list_title"
+                           id="seo_list_title" value="{$data.seo_list_title}">
+                </div>
+            </div>
+            <div class="form-group list" style="display:none">
+                <label for="seo_list_keywords" class="col-sm-2 control-label">关键词</label>
+                <div class="col-sm-10">
+                    <input class="form-control" name="seo_list_keywords"
+                           id="seo_list_keywords" value="{$data.seo_list_keywords}">
+                </div>
+            </div>
+            <div class="form-group list" style="display:none">
+                <label for="seo_list_description" class="col-sm-2 control-label">描述</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" name="seo_list_description"
+                              id="seo_list_description" cols="30" rows="10">{$data.seo_list_description}</textarea>
+                </div>
+            </div>
+            <!------------------  article -------------------------->
+            <div class="form-group article" style="display:none">
+                <label for="seo_article_title" class="col-sm-2 control-label">标题</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="seo_article_title"
+                           id="seo_article_title" value="{$data.seo_article_title}">
+                </div>
+            </div>
+            <div class="form-group article" style="display:none">
+                <label for="seo_article_keywords" class="col-sm-2 control-label">关键词</label>
+                <div class="col-sm-10">
+                    <input class="form-control" name="seo_article_keywords"
+                           id="seo_article_keywords" value="{$data.seo_article_keywords}">
+                </div>
+            </div>
+            <div class="form-group article" style="display:none">
+                <label for="seo_article_description" class="col-sm-2 control-label">描述</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" name="seo_article_description"
+                              id="seo_article_description" cols="30" rows="10">{$data.seo_article_description}</textarea>
+                </div>
+            </div>
+            <!------------------  page -------------------------->
+            <div class="form-group page" style="display:none">
+                <label for="seo_page_title" class="col-sm-2 control-label">标题</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="seo_page_title"
+                           id="seo_page_title" value="{$data.seo_page_title}">
+                </div>
+            </div>
+            <div class="form-group page" style="display:none">
+                <label for="seo_page_keywords" class="col-sm-2 control-label">关键词</label>
+                <div class="col-sm-10">
+                    <input class="form-control" name="seo_page_keywords"
+                           id="seo_page_keywords" value="{$data.seo_page_keywords}">
+                </div>
+            </div>
+            <div class="form-group page" style="display:none">
+                <label for="seo_page_description" class="col-sm-2 control-label">描述</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" name="seo_page_description"
+                              id="seo_page_description" cols="30" rows="10">{$data.seo_page_description}</textarea>
+                </div>
+            </div>
+        </div>
+        <h4 class="sub-header">可用标签</h4>
+
+        <table class="seo-tag-list table">
+            <thead><tr><th>支持的标签</th><th>概述</th></tr></thead>
+            <tbody>
+                <tr style="display:none" class="item article"><td>{title}</td><td>文章标题</td></tr>
+                <tr style="display:none" class="item page"><td>{title}</td><td>页面标题</td></tr>
+                <tr style="display:none" class="item article list"><td>{category_name}</td><td>分类名</td></tr>
+                <tr style="display:none" class="item list"><td>{page}</td><td>当前页数</td></tr>
+                <tr style="display:none" class="item article"><td>{description}</td><td>文章摘要</td></tr>
+                <tr style="display:none" class="item page"><td>{description}</td><td>页面摘要</td></tr>
+                <tr class="all"><td>{blog_name}</td><td>网站名称</td></tr>
+                <tr class="all"><td>{sub_title}</td><td>网站副标题</td></tr>
+                <tr class="all"><td>{site_url}</td><td>网站地址</td></tr>
+            </tbody>
+        </table>
+        {/eq}
         <button type="submit" class="btn btn-default">提交</button>
     </form>
     </div>

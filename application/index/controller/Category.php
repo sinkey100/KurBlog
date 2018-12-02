@@ -21,7 +21,6 @@ class Category extends Base
             $path = url('index/index/index');
         } else {
             $category = CategoryModel::get(is_numeric($param) ? $param : ['slug' => $param]);
-            $this->assign('title',$category['title']);
             $where['category_id'] = $category['id'];
             $category = [$category];
             $path = url('index/category/index', ['param' => $param]);
@@ -36,6 +35,11 @@ class Category extends Base
         //数据加工
         $res = $this->processing($res,$category);
         $this->assign('data',$res);
+
+        //SEO信息;
+        $this->seo_replace['{category_name}'] = $category[0]['title'] ? : '';
+        $this->seo_replace['{page}'] = $page;
+        $this->setSeoData($param == NULL ? 'index' : 'list');
         return $this->view->fetch('/index');
     }
 }

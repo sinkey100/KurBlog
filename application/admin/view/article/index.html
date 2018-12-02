@@ -18,7 +18,7 @@
         {volist name="article_list" id="vo"}
         <tr id="li_{$vo.id}">
             <td>{$vo.id}</td>
-            <td class="title"><a href="{:url('index/index/article',['param'=>$vo.id])}" target="_blank">{$vo.title}</a></td>
+            <td class="title"><a href="{:url('index/article/index',['param'=>$vo.id])}" target="_blank">{$vo.title}</a></td>
             <td class="category_id">{$category[$vo.category_id]}</td>
             <td class="comment-num">
                 {neq name="$vo.status" value="0"}

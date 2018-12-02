@@ -3,10 +3,10 @@
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-    <title><?=$title?> - <?=$_K['setting']['blog_name']?></title>
+    <title><?=$seo_title?></title>
     <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1,minimum-scale=1">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <meta name="description" content="<?=$seo_description?>">
+    <meta name="keywords" content="<?=$seo_keywords?>">
     <link rel="stylesheet" href="/static/common/css/bootstrap.css">
     <link rel="stylesheet" href="<?=__PUBLIC__?>/static/style.css">
     <script src="/static/common/js/jquery.min.js"></script>
@@ -28,7 +28,7 @@
                     </div>
                     <ul id="nav-list">
                         <?php foreach($_K['menu'] as $v): ?>
-                            <li><a href="<?=$v['url']?>"><?=$v['title']?></a></li>
+                            <li class="<?=$v['class']?>"><a href="<?=$v['url']?>"><?=$v['title']?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </nav>

@@ -6,12 +6,14 @@ $(document).ready(function(){
         var id = $(this).data("id");
         var title = $("#li_"+id+" .title").html();
         var value = $("#li_"+id+" .value").html();
+        var _class = $("#li_"+id+" .class").html();
         var parent_id = $("#li_"+id).data('parent_id');
         var type    = $("#li_"+id).data('type');
         $("#title").val(title);
         $("#id").val(id);
         $("#parent_id").val(parent_id);
         $("#value").val(value);
+        $("#class").val(_class);
         $("#type-"+type).click();
         $(".cancel").css({"display":"inline-block"});
         $(".edit h2").html("修改菜单");

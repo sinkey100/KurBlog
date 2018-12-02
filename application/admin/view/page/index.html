@@ -17,7 +17,7 @@
         {volist name="page_list" id="vo"}
         <tr id="li_{$vo.id}">
             <td>{$vo.id}</td>
-            <td class="title"><a href="{:url('index/index/page',['param'=>$vo.id])}" target="_blank">{$vo.title}</a></td>
+            <td class="title"><a href="{:url('index/page/index',['param'=>$vo.id])}" target="_blank">{$vo.title}</a></td>
             <td class="comment-num">{$commentNum[$vo.id]}</td>
             <td class="time">{$vo.create_time}</td>
             <td>

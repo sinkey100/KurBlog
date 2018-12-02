@@ -18,6 +18,25 @@ $(document).ready(function(){
         }
     });
 
+    $("#seo-tag-menu li").click(function(){
+        var id = $(this).data('id');
+        $('#seo-tag-menu li').removeClass('active')
+        $('#seo-tag-menu .'+id).addClass('active')
+        $('.seo-tag-list .item').css({
+            'display' : 'none'
+        });
+        $('.form-seo .form-group').css({
+            'display' : 'none'
+        });
+        $(".seo-tag-list ."+id).css({
+            'display' : 'table-row'
+        });
+        $(".form-seo .form-group."+id).css({
+            'display' : 'block'
+        })
+
+    })
+
 
 });
 

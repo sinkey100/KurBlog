@@ -7,11 +7,7 @@ class Menu extends Base
 {
     public function index(){
         //获取所有菜单
-        $list   = MenuModel::all(
-            function($query){
-                $query->order('weight','asc');
-            }
-        );
+        $list   = MenuModel::order('weight','asc')->select();
         $menu   = [];
         //枚举顶级菜单
         foreach($list as $v){
@@ -41,11 +37,12 @@ class Menu extends Base
         $data = [
             'parent_id' => intval($data['parent_id']),
             'title'     => $data['title'],
-            'weight'    => 0,
             'type'      => $data['type'],
-            'value'     => $data['type']=='url' ? $data['value'] : intval($data['value'])
+            'value'     => $data['type']=='url' ? $data['value'] : intval($data['value']),
+            'class'     => $data['class']
         ];
         if($id == 0){
+            $data['weight'] = 0;
             $result = MenuModel::create($data);
         }else{
             $data['id'] = $id;

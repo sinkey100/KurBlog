@@ -26,7 +26,7 @@ class Index extends Base
         $dbVersion      = Db::query("SELECT VERSION()");
         $dbVersion      = $dbVersion[0]['VERSION()'];
         $system_data = [
-            'KurBlog'       => '1.0',
+            'KurBlog'       => config('kurblog.version'),
             'ThinkPHP'      => THINK_VERSION,
             'serverInfo'    => $serverInfo,
             'fileUpload'    => $fileUpload,

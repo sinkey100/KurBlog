@@ -18,10 +18,12 @@ class Base extends Controller
 {
 
     public $_K;
+    public $seo_replace = [];
+
 
     public function _initialize() {
         parent::_initialize();
-        $this->checkInstall();
+        checkInstall();
         //获取设置
         $data       = SettingModel::all();
         $setting    = [];
@@ -49,6 +51,7 @@ class Base extends Controller
                 'parent_id'     => $v['parent_id'],
                 'title'         => $v['title'],
                 'weight'        => $v['weight'],
+                'class'         => $v['class'],
                 'url'           => $v['type']=='url' ? $v['value']  : $this->getURL($v['type'],$v['value'])
             ];
         }
@@ -60,17 +63,19 @@ class Base extends Controller
             'view_suffix'   => 'php',
             'view_depr'     => '/',
         ]);
-        $this->assign('title','首页');
         $this->assign('_K',$this->_K);
+        //SEO优化预设
+        $this->seo_replace = [
+            '{blog_name}'       => $this->_K['setting']['blog_name'],
+            '{sub_title}'       => $this->_K['setting']['sub_title'],
+            '{site_url}'        => $this->_K['setting']['siteurl']
+        ];
+        $this->assign('seo_title',$this->_K['setting']['blog_name']);
+        $this->assign('seo_keywords','');
+        $this->assign('seo_description','');
     }
 
-    protected function checkInstall(){
-        $res = config('database');
-        if($res['hostname'] == '{db_host}' || empty($res['database'])){
-            $this->redirect(url('install/index/index'));
-            return false;
-        }
-    }
+
 
 
     /**
@@ -89,6 +94,19 @@ class Base extends Controller
         }else if($type == 'article'){
             return url('index/article/index',['param'=>$t]);
         }
+    }
+
+
+    protected function setSeoData($key){
+        $find = [];
+        $replace = [];
+        foreach ($this->seo_replace as $k=>$v){
+            $find[]     = $k;
+            $replace[]  = $v;
+        }
+        $this->assign('seo_title',str_replace($find,$replace,$this->_K['setting']['seo_'.$key.'_title']));
+        $this->assign('seo_keywords',str_replace($find,$replace,$this->_K['setting']['seo_'.$key.'_keywords']));
+        $this->assign('seo_description',str_replace($find,$replace,$this->_K['setting']['seo_'.$key.'_description']));
     }
 
     protected function processing($res,$category_list){

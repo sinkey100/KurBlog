@@ -18,8 +18,12 @@ class Index extends Controller
     public function _initialize() {
         parent::_initialize();
         if(request()->action() != 'step_4'){
-            $config_path = APP_PATH . 'database.php';
-            if(file_exists($config_path)){
+            $res  = APP_PATH . 'database.php';
+            $res = include($res);
+            if(
+                !empty($res['hostname'])
+                && $res['hostname'] != '{db_host}'
+            ){
                 $this->error('请勿重新安装，如需重新安装，请删除 application\database.php 文件后重试',NULL,'',60);
             }
         }
@@ -93,7 +97,7 @@ class Index extends Controller
             return false;
         }
         $sql = file_get_contents(__DIR__ . '/../extra/database.sql');
-        $a = ['{prefix}', '{email}', '{blog_name}', '{time}', '{username}', '{password}'];
+        $a = ['{{prefix}}', '{{email}}', '{{blog_name}}', '{{time}}', '{{username}}', '{{password}}'];
         $b = [$database['db_prefix'], $data['email'], $data['title'], time(), $data['username'], md5(sha1($data['password']))];
         $sql = str_replace($a, $b, $sql);
         $sql = explode(";", $sql);

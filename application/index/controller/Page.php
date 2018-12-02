@@ -27,13 +27,18 @@ class Page extends Base
         $markdownParser = new Parsedown();
         $template = $res['template'];
         $res['content'] = $markdownParser->text($res['content']);
+        $res['description'] = empty($res['description'])
+            ? mb_substr(strip_tags($res['content']),0,$this->_K['setting']['description_length'], 'utf-8')
+            : $res['description'];
         $this->assign('data',$res);
         $this->assign('comment',[
             'type'      => 'article',
             'value'     => $res['id'],
             'html'      => CommentModel::getComment('page',$res['id'],$this->_K['setting']['order_by_time'])
         ]);
-        $this->assign('title',$res['title']);
+        $this->seo_replace['{title}'] = $res['title'];
+        $this->seo_replace['{description}'] = $res['description'];
+        $this->setSeoData('page');
         return $this->view->fetch('/page/'.$template);
     }
 }

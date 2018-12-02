@@ -35,7 +35,11 @@ class Article extends Base
             'value'     => $res['id'],
             'html'      => CommentModel::getComment('article',$res['id'],$this->_K['setting']['order_by_time'])
         ]);
-        $this->assign('title',$res['title']);
+        //SEO信息;
+        $this->seo_replace['{title}'] = $res['title'];
+        $this->seo_replace['{category_name}'] = $category['title'];
+        $this->seo_replace['{description}'] = $res['description'];
+        $this->setSeoData('article');
         return $this->view->fetch('/article');
     }
 

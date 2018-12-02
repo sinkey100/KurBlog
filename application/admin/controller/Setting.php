@@ -14,7 +14,8 @@ class Setting extends Base
         'home'      => '前台',
         'comment'   => '评论',
         'mail'      => '邮件设置',
-        'rewrite'   => '固定链接'
+        'rewrite'   => '固定链接',
+        'seo'       => 'SEO优化'
     ];
 
     public function index(){
@@ -195,6 +196,18 @@ class Setting extends Base
         $data = $this->getData(['smtp_mail','smtp_server','smtp_port','smtp_password','smtp_ssl']);
         $this->assign('data',$data);
         $this->assign('action','mail');
+        return $this->view();
+    }
+
+    public function seo(){
+        $data = $this->getData([
+            'seo_index_title','seo_index_keywords','seo_index_description',
+            'seo_list_title','seo_list_keywords','seo_list_description',
+            'seo_article_title','seo_article_keywords','seo_article_description',
+            'seo_page_title','seo_page_keywords','seo_page_description'
+        ]);
+        $this->assign('data',$data);
+        $this->assign('action','seo');
         return $this->view();
     }
 
