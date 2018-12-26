@@ -19,12 +19,12 @@ class Index extends Controller
         parent::_initialize();
         if(request()->action() != 'step_4'){
             $res  = APP_PATH . 'database.php';
-            $res = include($res);
+            $res = @include($res);
             if(
                 !empty($res['hostname'])
                 && $res['hostname'] != '{db_host}'
             ){
-                $this->error('请勿重新安装，如需重新安装，请删除 application\database.php 文件后重试',NULL,'',60);
+                $this->error('请勿重新安装，如需重新安装，请清空 application\database.php 文件的内容后重试',NULL,'',60);
             }
         }
 
