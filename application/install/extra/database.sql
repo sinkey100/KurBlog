@@ -125,7 +125,7 @@ INSERT INTO `{{prefix}}setting` (`key`, `value`) VALUES
 ('siteurl', 'http://www.kurblog.com'),
 ('admin_email', '{{email}}'),
 ('icp_num', ''),
-('home', '{{"type":"article","value":""}}'),
+('home', '{"type":"article","value":""}'),
 ('per_page', '6'),
 ('order_by_time', 'asc'),
 ('need_review', '0'),
